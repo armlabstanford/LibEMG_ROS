@@ -1,5 +1,5 @@
 from tkinter import *
-from snake_game import SnakeGame
+from classify import HandGame
 from libemg.screen_guided_training import ScreenGuidedTraining
 from libemg.data_handler import OnlineDataHandler, OfflineDataHandler
 from libemg.streamers import oymotion_streamer
@@ -28,19 +28,19 @@ class Menu:
         self.window = Tk()
         self.window.protocol("WM_DELETE_WINDOW", self.on_closing)
         self.window.title("Game Menu")
-        self.window.geometry("500x200")
+        self.window.geometry("500x400")
 
         # Label 
-        Label(self.window, font=("Arial bold", 20), text = 'LibEMG - Snake Demo').pack(pady=(10,20))
+        Label(self.window, font=("Arial bold", 20), text = 'LibEMG - Hand Demo').pack(pady=(10,20))
         # Train Model Button
         Button(self.window, font=("Arial", 18), text = 'Train Model', command=self.launch_training).pack(pady=(0,20))
-        # Play Snake Button
-        Button(self.window, font=("Arial", 18), text = 'Play Snake', command=self.play_snake).pack()
+        # Classify Button
+        Button(self.window, font=("Arial", 18), text = 'Classify', command=self.play_game).pack()
 
-    def play_snake(self):
+    def play_game(self):
         self.window.destroy()
         self.set_up_classifier()
-        SnakeGame().run_game()
+        HandGame().run_game()
         # Its important to stop the classifier after the game has ended
         # Otherwise it will continuously run in a seperate process
         self.classifier.stop_running()
