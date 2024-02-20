@@ -8,7 +8,7 @@ To use the GForce armband, plug in the bluetooth dongle and switch the armband o
 To use this package, clone it into a valid catkin workspace and build it (not really necessary, but might help keep everything together if there is more development in ROS around it). Then
 1. Install [LibEMG](https://libemg.github.io/libemg/index.html).
 2. The [GForce python interface](https://github.com/oymotion/gForceSDKPython) requires BluePy, so install [BluePy](https://github.com/IanHarvey/bluepy). 
-3. To run everything without root privileges, run as described [here](https://github.com/IanHarvey/bluepy/issues/313#issuecomment-437939172).
+3. To run everything without root privileges, set capabilities as described [here](https://github.com/IanHarvey/bluepy/issues/313#issuecomment-437939172).
 ```
   sudo setcap cap_net_raw+e  <PATH>/bluepy-helper
   sudo setcap cap_net_admin+eip  <PATH>/bluepy-helper
