@@ -18,7 +18,7 @@ To use this package, clone it into a valid catkin workspace and build it (not re
 python3 train.py
 ```
 
-This will open a menu that takes training data for hand open/close, wrist flexion/extension, and no motion (click "Train") and then publishes predicted classes to a ROS topic (click "Classify"). To stream the topic to terminal, 
+This will open a menu that takes training data for hand open/close, wrist flexion/extension, and no motion (click "Train") and then publishes predicted classes to a ROS topic (click "Classify"). The training GUI is the same as in the snake game demo example. To stream the topic to terminal, 
 ``` 
 rostopic echo /emg
 ```
