@@ -9,7 +9,7 @@ from libemg.emg_classifier import OnlineEMGClassifier, EMGClassifier
 
 class Menu:
     def __init__(self):
-        # Myo Streamer - start streaming the myo data 
+        # Stream data from the band
         oymotion_streamer(platform='Linux')
 
         # Create online data handler to listen for the data
@@ -42,7 +42,7 @@ class Menu:
         self.set_up_classifier()
         HandGame().run_game()
         # Its important to stop the classifier after the game has ended
-        # Otherwise it will continuously run in a seperate process
+        # Otherwise it will continuously run in a separate process
         self.classifier.stop_running()
         self.initialize_ui()
 
