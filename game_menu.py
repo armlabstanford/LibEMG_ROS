@@ -2,7 +2,7 @@ from tkinter import *
 from snake_game import SnakeGame
 from libemg.screen_guided_training import ScreenGuidedTraining
 from libemg.data_handler import OnlineDataHandler, OfflineDataHandler
-from libemg.streamers import myo_streamer
+from libemg.streamers import oymotion_streamer
 from libemg.utils import make_regex
 from libemg.feature_extractor import FeatureExtractor
 from libemg.emg_classifier import OnlineEMGClassifier, EMGClassifier
@@ -10,7 +10,7 @@ from libemg.emg_classifier import OnlineEMGClassifier, EMGClassifier
 class Menu:
     def __init__(self):
         # Myo Streamer - start streaming the myo data 
-        myo_streamer()
+        oymotion_streamer(platform='Linux')
 
         # Create online data handler to listen for the data
         self.odh = OnlineDataHandler()
@@ -61,7 +61,7 @@ class Menu:
         # Step 1: Parse offline training data
         dataset_folder = 'data/'
         classes_values = ["0","1","2","3","4"]
-        classes_regex = make_regex(left_bound = "_C_", right_bound=".csv", values = classes_values)
+        classes_regex = make_regex(left_bound = "_C_", right_bound="_EMG.csv", values = classes_values)
         reps_values = ["0", "1", "2"]
         reps_regex = make_regex(left_bound = "R_", right_bound="_C_", values = reps_values)
         dic = {
