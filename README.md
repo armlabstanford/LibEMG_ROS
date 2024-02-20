@@ -1,6 +1,4 @@
-﻿# Snake Demo
-The goal of this demo is to show how [LibEMG]() can be leveraged to interface a simple pygame using continuous control. Please check out the the [Example 1]() from the docs for a full walkthrough.
+﻿# LibEMG_ROS
+This is a ROS package that publishes continuous control inputs from an OyMotion GForce armband to a ROS topic. It is based on the [LibEMG]() snake game demo and uses the same training interface. LibEMG supports OyMotion and Myo is no longer available. Please check out the the [Example 1]() from the docs for the original game.
 
-<p align="center">
-    <img src="https://github.com/eeddy/Snake-Demo/blob/main/docs/snake_game.png?raw=True" width="300" height="300">
-</p>
+Clone this into a valid catkin workspace to use it. 
