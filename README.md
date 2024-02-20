@@ -6,12 +6,11 @@ It is only slightly modified from the [LibEMG](https://libemg.github.io/libemg/i
 To use this package, clone it into a valid catkin workspace and build it. Then
 1. Install [LibEMG](https://libemg.github.io/libemg/index.html).
 2. The [GForce python interface](https://github.com/oymotion/gForceSDKPython) requires BluePy, so install [BluePy](https://github.com/IanHarvey/bluepy). 
-3. To run everything without root privileges, run 
+3. To run everything without root privileges, run as described [here](https://github.com/IanHarvey/bluepy/issues/313#issuecomment-437939172).
 ```
   sudo setcap cap_net_raw+e  <PATH>/bluepy-helper
   sudo setcap cap_net_admin+eip  <PATH>/bluepy-helper
 ```
-as described [here](https://github.com/IanHarvey/bluepy/issues/313#issuecomment-437939172).
 4. Start `roscore` in a terminal, and navigate to the package and run `train.py` in a separate terminal.
 ```
 python3 train.py
