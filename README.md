@@ -3,7 +3,9 @@ This is a ROS package that publishes continuous control inputs from an OyMotion 
 
 It is only slightly modified from the [LibEMG](https://libemg.github.io/libemg/index.html) snake game demo, which uses the Thalmic Labs Myo armband by default. The Myo armband is no longer available, but fortunately, LibEMG supports the OyMotion band as well. Please see [Example 1](https://libemg.github.io/libemg/examples/snake_example/snake_example.html) from the LibEMG documentation for the original game.
 
-To use this package, clone it into a valid catkin workspace and build it. Then
+To use the GForce armband, plug in the bluetooth dongle and switch the armband on while charged.
+
+To use this package, clone it into a valid catkin workspace and build it (not really necessary, but might help keep everything together if there is more development in ROS around it). Then
 1. Install [LibEMG](https://libemg.github.io/libemg/index.html).
 2. The [GForce python interface](https://github.com/oymotion/gForceSDKPython) requires BluePy, so install [BluePy](https://github.com/IanHarvey/bluepy). 
 3. To run everything without root privileges, run as described [here](https://github.com/IanHarvey/bluepy/issues/313#issuecomment-437939172).
