@@ -8,7 +8,7 @@ To use the GForce armband, plug in the bluetooth dongle and switch the armband o
 To use this package, clone it into a valid catkin workspace and build it (not really necessary, but might help keep everything together if there is more development in ROS around it). Then
 1. Install [LibEMG](https://libemg.github.io/libemg/index.html).
 2. The [GForce python interface](https://github.com/oymotion/gForceSDKPython) requires BluePy, so install [BluePy](https://github.com/IanHarvey/bluepy). 
-3. To run everything without root privileges, run as described [here](https://github.com/IanHarvey/bluepy/issues/313#issuecomment-437939172).
+3. To run everything without root privileges, set capabilities as described [here](https://github.com/IanHarvey/bluepy/issues/313#issuecomment-437939172).
 ```
   sudo setcap cap_net_raw+e  <PATH>/bluepy-helper
   sudo setcap cap_net_admin+eip  <PATH>/bluepy-helper
@@ -18,7 +18,7 @@ To use this package, clone it into a valid catkin workspace and build it (not re
 python3 train.py
 ```
 
-This will open a menu that takes training data for hand open/close, wrist flexion/extension, and no motion (click "Train") and then publishes predicted classes to a ROS topic (click "Classify"). The training GUI is the same as in the snake game demo example. To stream the topic to terminal, 
+This will open a menu that takes training data for hand open/close, wrist flexion/extension, and no motion (click "Train"), saves it in a /data directory, and then publishes predicted classes to a ROS topic (click "Classify"). The training GUI is the same as in the snake game demo example. To stream the topic to terminal, 
 ``` 
 rostopic echo /emg
 ```
