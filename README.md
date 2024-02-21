@@ -23,6 +23,11 @@ This will open a menu that takes training data for hand open/close, wrist flexio
 rostopic echo /emg
 ```
 
-The topic name and message contents can be changed in `classify.py` where the publisher is defined.
+5. If already trained, the classifier can be run as a rosnode:
+```
+rosrun libemg_ros classify_rosnode.py
+```
+
+The topic name and message contents can be changed in `classify_rosnode.py` where the publisher is defined.
 
 Note: The output-dir option in curl might not work with all versions of curl. To make a quick start more likely without debugging version issues, the training images that would have been downloaded automatically on the first execution of the original script are included here.
