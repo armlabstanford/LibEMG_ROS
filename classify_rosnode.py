@@ -10,6 +10,8 @@ from libemg.utils import make_regex
 from libemg.feature_extractor import FeatureExtractor
 from libemg.emg_classifier import OnlineEMGClassifier, EMGClassifier
 import signal
+import rospkg
+import os
 
 class Classifier:
     def __init__(self):
@@ -24,8 +26,11 @@ class Classifier:
         WINDOW_SIZE = 100 
         WINDOW_INCREMENT = 50
 
+        rospack = rospkg.RosPack()
+        package_path = rospack.get_path('libemg_ros')
+
         # Step 1: Parse offline training data
-        dataset_folder = 'data/'
+        dataset_folder = os.path.join(package_path, 'data/')
         classes_values = ["0","1","2","3","4"]
         classes_regex = make_regex(left_bound = "_C_", right_bound="_EMG.csv", values = classes_values)
         reps_values = ["0", "1", "2"]
