@@ -6,6 +6,7 @@ from libemg.streamers import oymotion_streamer
 from libemg.utils import make_regex
 from libemg.feature_extractor import FeatureExtractor
 from libemg.emg_classifier import OnlineEMGClassifier, EMGClassifier
+from libemg.filtering import Filter
 
 class Menu:
     def __init__(self):
@@ -28,7 +29,7 @@ class Menu:
         self.window = Tk()
         self.window.protocol("WM_DELETE_WINDOW", self.on_closing)
         self.window.title("Game Menu")
-        self.window.geometry("500x400")
+        self.window.geometry("2000x1600")
 
         # Label 
         Label(self.window, font=("Arial bold", 20), text = 'LibEMG - Hand Demo').pack(pady=(10,20))
@@ -91,6 +92,7 @@ class Menu:
 
         # Step 5: Create online EMG classifier and start classifying.
         self.classifier = OnlineEMGClassifier(o_classifier, WINDOW_SIZE, WINDOW_INCREMENT, self.odh, feature_list)
+
         self.classifier.run(block=False) # block set to false so it will run in a seperate process.
 
     def on_closing(self):

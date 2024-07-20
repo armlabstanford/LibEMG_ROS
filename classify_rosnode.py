@@ -12,11 +12,13 @@ from libemg.emg_classifier import OnlineEMGClassifier, EMGClassifier
 import signal
 import rospkg
 import os
+import sys
+import datetime
 
 class Classifier:
-    def __init__(self):
+    def __init__(self, filename):
         oymotion_streamer(platform='Linux')
-        self.odh = OnlineDataHandler()
+        self.odh = OnlineDataHandler(file=True, file_path=filename)
         self.odh.start_listening()
 
         # Socket for reading EMG
@@ -101,7 +103,7 @@ class Classifier:
             else:
                 return
             
-    def stop_running_game(self):
+    def stop_running_game(self, filename):
         self.running = False
         self.odh.stop_listening()
         rospy.signal_shutdown("Game Ended")
@@ -112,5 +114,11 @@ class Classifier:
             self.handle_emg()
 
 if __name__ == "__main__":
-    classifier = Classifier()
+    print(sys.argv)
+    participant = sys.argv[1]
+    mode = sys.argv[2]
+    trial = sys.argv[3]
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
+    filename = "../data/participant" + participant + "-" + "mode" + mode + "-" + "trial" + trial + "_" + timestamp + "_"
+    classifier = Classifier(filename)
     classifier.run_game()
