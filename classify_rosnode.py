@@ -115,9 +115,15 @@ class Classifier:
 
 if __name__ == "__main__":
     print(sys.argv)
-    participant = sys.argv[1]
-    mode = sys.argv[2]
-    trial = sys.argv[3]
+    # if no arguments are given, use default values
+    if len(sys.argv) < 4:
+        participant = "0"
+        mode = "0"
+        trial = "0"
+    else:
+        participant = sys.argv[1]
+        mode = sys.argv[2]
+        trial = sys.argv[3]
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
     filename = "../data/participant" + participant + "-" + "mode" + mode + "-" + "trial" + trial + "_" + timestamp + "_"
     classifier = Classifier(filename)
