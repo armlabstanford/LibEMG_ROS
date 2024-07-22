@@ -20,8 +20,7 @@ python3 train.py
 
 This will open a menu that takes training data for hand open/close, wrist flexion/extension, and no motion (click "Train"), saves it in a /data directory, and then publishes predicted classes to a ROS topic with a GUI we added to check the quality of classification (click "Classify"). The training GUI is the same as in the snake game demo example. 
 
-<img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/emg_train.png" height="300">
-<img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/emg_test.png" height="300">
+<img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/emg_train.png" height="300"><img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/emg_test.png" height="300">
 
 To stream the topic to terminal, 
 ``` 
