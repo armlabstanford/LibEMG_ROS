@@ -18,7 +18,11 @@ To use this package, clone it into a valid catkin workspace and build it (not re
 python3 train.py
 ```
 
-This will open a menu that takes training data for hand open/close, wrist flexion/extension, and no motion (click "Train"), saves it in a /data directory, and then publishes predicted classes to a ROS topic (click "Classify"). The training GUI is the same as in the snake game demo example. To stream the topic to terminal, 
+This will open a menu that takes training data for hand open/close, wrist flexion/extension, and no motion (click "Train"), saves it in a /data directory, and then publishes predicted classes to a ROS topic with a GUI we added to check the quality of classification (click "Classify"). The training GUI is the same as in the snake game demo example. 
+
+<img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/emg_train.png" height="300"><img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/emg_test.png" height="300">
+
+To stream the topic to terminal, 
 ``` 
 rostopic echo /emg
 ```
@@ -28,6 +32,6 @@ rostopic echo /emg
 rosrun libemg_ros classify_rosnode.py
 ```
 
-The topic name and message contents can be changed in `classify_rosnode.py` where the publisher is defined.
+The topic name, message contents, and log filename can be changed in `classify_rosnode.py` where the publisher is defined. By default, data will be stored with a timestamp in the filename.
 
 Note: The output-dir option in curl might not work with all versions of curl. To make a quick start more likely without debugging version issues, the training images that would have been downloaded automatically on the first execution of the original script are included here.
