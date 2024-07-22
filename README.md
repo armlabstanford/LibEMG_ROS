@@ -22,6 +22,8 @@ This will open a menu that takes training data for hand open/close, wrist flexio
 
 <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/emg_train.png" height="300">    <img src="https://github.com/armlabstanford/armlabstanford.github.io/blob/master/static/proact/images/emg_test.png" height="300">
 
+[Video of training and testing](https://www.youtube.com/watch?v=Il9N8hQZjtg)
+
 To stream the topic to terminal, 
 ``` 
 rostopic echo /emg
