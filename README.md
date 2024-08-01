@@ -1,4 +1,4 @@
-﻿# LibEMG_ROS
+﻿# LibEMG-ROS
 This is a ROS package that publishes continuous control inputs from an OyMotion GForce armband to a ROS topic. For publishing OyMotion data directly to ROS, see [here](https://github.com/oymotion/ros_gforce). This package uses the [LibEMG](https://libemg.github.io/libemg/index.html) library to process the data for use in robotics applications. 
 
 It is a modification of the snake game demo, which uses the Thalmic Labs Myo armband by default. The Myo armband is no longer available, but fortunately, LibEMG supports the OyMotion band as well. Please see [Example 1](https://libemg.github.io/libemg/examples/snake_example/snake_example.html) from the LibEMG documentation for the original game.
