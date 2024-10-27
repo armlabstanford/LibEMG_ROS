@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import rospy
 import socket
@@ -17,7 +17,7 @@ import datetime
 
 class Classifier:
     def __init__(self, filename):
-        oymotion_streamer(platform='Linux')
+        oymotion_streamer()
         self.odh = OnlineDataHandler(file=True, file_path=filename)
         self.odh.start_listening()
 
@@ -34,7 +34,7 @@ class Classifier:
         # Step 1: Parse offline training data
         dataset_folder = os.path.join(package_path, 'data/')
         classes_values = ["0","1","2","3","4"]
-        classes_regex = make_regex(left_bound = "_C_", right_bound="_EMG.csv", values = classes_values)
+        classes_regex = make_regex(left_bound = "_C_", right_bound=".csv", values = classes_values)
         reps_values = ["0", "1", "2"]
         reps_regex = make_regex(left_bound = "R_", right_bound="_C_", values = reps_values)
         dic = {
@@ -125,6 +125,6 @@ if __name__ == "__main__":
         mode = sys.argv[2]
         trial = sys.argv[3]
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
-    filename = "../data/participant" + participant + "-" + "mode" + mode + "-" + "trial" + trial + "_" + timestamp + "_"
+    filename = "../data/participant" + participant + "-" + "mode" + mode + "-" + "trial" + trial + "_" + timestamp + "_EMG.csv"
     classifier = Classifier(filename)
     classifier.run_game()

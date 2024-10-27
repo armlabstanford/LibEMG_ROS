@@ -11,7 +11,7 @@ from libemg.filtering import Filter
 class Menu:
     def __init__(self):
         # Stream data from the band
-        oymotion_streamer(platform='Linux')
+        oymotion_streamer()
 
         # Create online data handler to listen for the data
         self.odh = OnlineDataHandler()
@@ -62,7 +62,7 @@ class Menu:
         # Step 1: Parse offline training data
         dataset_folder = 'data/'
         classes_values = ["0","1","2","3","4"]
-        classes_regex = make_regex(left_bound = "_C_", right_bound="_EMG.csv", values = classes_values)
+        classes_regex = make_regex(left_bound = "_C_", right_bound=".csv", values = classes_values)
         reps_values = ["0", "1", "2"]
         reps_regex = make_regex(left_bound = "R_", right_bound="_C_", values = reps_values)
         dic = {
